@@ -211,3 +211,16 @@ textarea {
     font-size: 18px;
     position: relative;
 }
+
+.container-upload-imagem button::after{
+    content: "";
+    background-image: url("./img/upload.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 50%;
+    transform
+}
