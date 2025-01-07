@@ -222,5 +222,13 @@ textarea {
     height: 15px;
     position: absolute;
     top: 50%;
-    transform
+    transform: translateY(-50%);
+    margin-left: 8px;
+}
+
+.container-imagem-nome {
+    display: flex;
+    gap: 8px;
+    color: var(--secundary-color);
+    font-size: 15px;
 }
