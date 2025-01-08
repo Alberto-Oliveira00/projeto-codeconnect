@@ -104,8 +104,6 @@ async function publicarProjeto(nome, descricao, tags) {
 //     })
 // }
 
-// document.querySelector('.botao-publicar').addEventListener('click', async (event) => {
-
 document.querySelector('.botao-publicar').addEventListener('click', async (event) => {
     event.preventDefault();
 
