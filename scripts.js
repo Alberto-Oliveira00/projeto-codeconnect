@@ -80,36 +80,55 @@ inputTags.addEventListener("keypress", async (evento) => {
     }
 })
 
-const botaoPublicar = document.querySelector(".botao-publicar");
-
-async function publicarProjeto(nomeDoProjeto, descricaoDoProjeto, tagsProjeto) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            const deuCerto = Math.random() > 0.5;
-
-            if (deuCerto) {
-                resolve("Projeto publicado com sucesso.")
-            } else {
-                reject("Erro ao publicar o projeto")
-            }
-        }, 2000)
-    })
+async function publicarProjeto(nome, descricao, tags) {
+    // Exemplo: enviar dados para uma API
+    return new Promise((resolve) => {
+        setTimeout(() => resolve("Projeto publicado!"), 1000);
+    });
 }
+// const botaoPublicar = document.querySelector(".botao-publicar");
 
-botaoPublicar.addEventListener("click", async (evento) => {
-    evento.preventDefault();
+// async function publicarProjeto(nomeDoProjeto, descricaoDoProjeto, tagsProjeto) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             const deuCerto = "Math.random() > 0.5";
+
+//             if (deuCerto) {
+//                 resolve("Projeto publicado com sucesso.")
+//             } else {
+//                 reject("Erro ao publicar o projeto")
+//             }
+//         }, 2000)
+//     })
+// }
+
+// document.querySelector('.botao-publicar').addEventListener('click', async (event) => {
+
+document.querySelector('.botao-publicar').addEventListener('click', async (event) => {
+    event.preventDefault();
 
     const nomeDoProjeto = document.getElementById("nome").value;
     const descricaoDoProjeto = document.getElementById("descricao").value;
     const tagsProjeto = Array.from(listaTags.querySelectorAll("p")).map((tag) => tag.textContent);
 
+    function validarFormulario(nome, descricao, tags){
+        if (!nome || !descricao) {
+            throw new Error('Por favor, preencha todos os campos obrigatórios (nome e descrição).');
+        }
+        if (tags.length === 0) {
+            throw new Error('Adicione pelo menos uma tag ao projeto.');
+        }
+    }
+
     try {
+        validarFormulario(nomeDoProjeto, descricaoDoProjeto, tagsProjeto);
+
         const resultado = await publicarProjeto(nomeDoProjeto, descricaoDoProjeto, tagsProjeto);
         console.log(resultado);
-        alert("Deu tudo certo!")
+        alert("Projeto publicado com sucesso!");
     } catch (error){
-        console.log("Deu errado: ", error)
-        alert("Deu tudo errado!")
+        console.log("Erro ao publicar o projeto: ", error)
+        alert('Erro ao publicar projeto: ' + error.message);
     }
 })
 
