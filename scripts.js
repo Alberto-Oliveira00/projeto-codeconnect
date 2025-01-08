@@ -86,6 +86,8 @@ async function publicarProjeto(nome, descricao, tags) {
         setTimeout(() => resolve("Projeto publicado!"), 1000);
     });
 }
+
+// Metodo utilizado anteriomente (Nem tão util)
 // const botaoPublicar = document.querySelector(".botao-publicar");
 
 // async function publicarProjeto(nomeDoProjeto, descricaoDoProjeto, tagsProjeto) {
